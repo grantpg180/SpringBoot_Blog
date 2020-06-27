@@ -1,0 +1,17 @@
+html, body 
+{
+    background-color: gray;
+    padding: 0.6em 1em;
+}
+.header 
+{
+    padding: 70px;
+    border: 10px solid black;
+}
+.header-letters
+{
+    text-align: center;
+    background-color: rgb(60, 60, 60);
+    color: white;
+ 
+}

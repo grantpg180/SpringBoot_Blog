@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pernell's Blog</title>
+
+    <div th:replace="/fragments/styling :: head-style"></div>
+
+</head>
+<body>   
+     <div th:replace="/fragments/styling :: header-style"></div>
+   
+  <br>
+   
+        <!--Thymeleaf loop (th:each)-->
+
+    <div class="container">
+        <div th:each="blog:${posts}">
+
+        <div class="row">
+
+            <div class="col-sm">
+
+                    <!--<div class="card bg-light text-black">-->
+
+                    <div class="card-header bg-dark text-white">
+                       <u><h5 th:text="${blog.title}"></h5></u>
+                    </div>
+
+                    <div class="card-footer bg-secondary text-white">
+                        <i><p th:text="${blog.author}"></p></i>
+                    </div>
+
+                    <div class="card-body bg-secondary text-white">
+                        <h6 th:text="${blog.blogEntry}"></h6>
+                    </div>
+                    <br>
+                    <div class="card-footer">
+                    <!--///////////////EDIT BUTTON/////////////////-->
+                        <a href="#" th:href="@{blogposts/{id}(id=${blog.id})}">
+                            <button class="btn btn-secondary">Edit</button>
+                        </a>
+                    <!--///////////////DELETE BUTTON/////////////////-->
+                        <a href="#" th:href="@{blogposts/delete/{id}(id=${blog.id})}">
+                            <button class="btn btn-danger">Delete</button>
+                        </a>
+                    </div>
+            </div>
+        </div>
+                        
+                </div>
+                
+
+        <div class="row">
+            <a href ="/blogposts/new">
+                <button class="btn btn-secondary">Submit a Blog</button>
+            </a>
+        </div>
+   </div>
+   <div th:replace="/fragments/styling :: body-links"></div>
+</div>
+</body>
+</html>
